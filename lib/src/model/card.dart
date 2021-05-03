@@ -25,6 +25,10 @@ class Card {
       required this.acceptors,
       required this.validUntil});
 
+  factory Card.fromJson(Map<String, dynamic> json) => _$CardFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CardToJson(this);
+
   @override
   String toString() {
     return 'Card[type=$type, subType=$subType, assetClass=$assetClass, acceptors=$acceptors, cardDescription=$cardDescription, cardNumber=$cardNumber, cardAdditionalNumber=$cardAdditionalNumber, validUntil=$validUntil, country=$country, ]';

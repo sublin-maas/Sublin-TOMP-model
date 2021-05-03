@@ -8,6 +8,10 @@ class Requirements {
 
   Requirements({required this.description});
 
+  factory Requirements.fromJson(Map<String, dynamic> json) => _$RequirementsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RequirementsToJson(this);
+
   @override
   String toString() {
     return 'Requirements[$description]';

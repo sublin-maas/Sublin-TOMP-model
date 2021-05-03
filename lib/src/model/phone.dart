@@ -15,6 +15,10 @@ class Phone {
       required this.kind,
       required this.type});
 
+  factory Phone.fromJson(Map<String, dynamic> json) => _$PhoneFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PhoneToJson(this);
+
   @override
   String toString() {
     return 'Phone[preferred=$preferred, number=$number, kind=$kind, type=$type, ]';

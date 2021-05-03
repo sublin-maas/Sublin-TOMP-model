@@ -56,6 +56,11 @@ class Customer {
       required this.cards,
       required this.licenses});
 
+  factory Customer.fromJson(Map<String, dynamic> json) =>
+      _$CustomerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CustomerToJson(this);
+
   @override
   String toString() {
     return 'Customer[isValidated=$isValidated, age=$age, referenceNumber=$referenceNumber, cardTypes=$cardTypes, licenseTypes=$licenseTypes, requirements=$requirements, id=$id, travelerReference=$travelerReference, initials=$initials, firstName=$firstName, lastName=$lastName, middleName=$middleName, prefix=$prefix, postfix=$postfix, phones=$phones, email=$email, birthDate=$birthDate, address=$address, photo=$photo, cards=$cards, licenses=$licenses, ]';

@@ -15,6 +15,10 @@ class CardType {
       required this.subType,
       required this.type});
 
+  factory CardType.fromJson(Map<String, dynamic> json) => _$CardTypeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CardTypeToJson(this);
+
   @override
   String toString() {
     return 'CardType[type=$type, subType=$subType, assetClass=$assetClass, acceptors=$acceptors, ]';

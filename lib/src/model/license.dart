@@ -17,6 +17,10 @@ class License {
       required this.licenseCode,
       required this.validUntil});
 
+  factory License.fromJson(Map<String, dynamic> json) => _$LicenseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LicenseToJson(this);
+
   @override
   String toString() {
     return 'License[assetClass=$assetClass, issuingCountry=$issuingCountry, number=$number, licenseCode=$licenseCode, validUntil=$validUntil, ]';
