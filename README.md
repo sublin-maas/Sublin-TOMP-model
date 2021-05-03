@@ -1,22 +1,19 @@
-A library for Dart developers.
+## Sublin TOMP cliet
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+TOMP is `Transport Operator Mobility-as-a-service Provider`
+[API](https://app.swaggerhub.com/apis/TOMP-API-WG/transport-operator_maas_provider_api/1.1.0#/info).
+[GitHub](https://github.com/TOMP-WG/TOMP-API/)
 
-## Usage
 
-A simple usage example:
+## Purpose
+This library created to be an abstraction layer for TOMP API used by Sublin mobile app.
 
-```dart
-import 'package:sublin_tomp_client/sublin_tomp_client.dart';
+## Development
 
-main() {
-  var awesome = new Awesome();
-}
-```
+We use `json_serialazable` to generate `fromJson/toJson` logic on DTO.
 
-## Features and bugs
+All generated classes have to be commited and stored under VCS.
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+To regenerate run:
+`flutter pub run build_runner build --delete-conflicting-outputs`
 
-[tracker]: http://example.com/issues/replaceme
