@@ -13,6 +13,7 @@ This library created to be an abstraction layer for TOMP API used by Sublin mobi
 - We use `json_serialazable` to generate `fromJson/toJson` logic on DTO.
 - All generated classes have to be commited and stored under VCS.
 - All properties not specified as `required` in swagger are considered to be `nullable`.
+- In case of enum always add `UNKNOWN` option, to prevent problems with unexpected values from server side
 
 To regenerate run:
 `flutter pub run build_runner build --delete-conflicting-outputs`
