@@ -4,26 +4,27 @@ part 'card.g.dart';
 
 @JsonSerializable()
 class Card {
-  String type;
-  String subType;
-  String assetClass;
-  List<String> acceptors;
-  String cardDescription;
+  String? type;
+  String? subType;
+  String? assetClass;
+  List<String>? acceptors;
+  String? cardDescription;
   String cardNumber;
-  String cardAdditionalNumber;
+  String? cardAdditionalNumber;
   DateTime validUntil;
-  String country;
+  String? country;
 
-  Card(
-      {required this.type,
-      required this.subType,
-      required this.assetClass,
-      required this.cardDescription,
-      required this.cardNumber,
-      required this.cardAdditionalNumber,
-      required this.country,
-      required this.acceptors,
-      required this.validUntil});
+  Card({
+    required this.cardNumber,
+    required this.validUntil,
+    this.type,
+    this.subType,
+    this.assetClass,
+    this.cardDescription,
+    this.cardAdditionalNumber,
+    this.country,
+    this.acceptors,
+  });
 
   factory Card.fromJson(Map<String, dynamic> json) => _$CardFromJson(json);
 

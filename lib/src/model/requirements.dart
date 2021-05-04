@@ -4,9 +4,9 @@ part 'requirements.g.dart';
 
 @JsonSerializable()
 class Requirements {
-  String description;
+  String? description;
 
-  Requirements({required this.description});
+  Requirements({this.description});
 
   factory Requirements.fromJson(Map<String, dynamic> json) => _$RequirementsFromJson(json);
 

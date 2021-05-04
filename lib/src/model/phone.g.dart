@@ -8,10 +8,10 @@ part of 'phone.dart';
 
 Phone _$PhoneFromJson(Map<String, dynamic> json) {
   return Phone(
-    preferred: json['preferred'] as bool,
-    number: json['number'] as String,
-    kind: json['kind'] as String,
-    type: json['type'] as String,
+    preferred: json['preferred'] as bool?,
+    number: json['number'] as String?,
+    kind: json['kind'] as String?,
+    type: json['type'] as String?,
   );
 }
 

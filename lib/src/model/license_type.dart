@@ -5,9 +5,9 @@ part 'license_type.g.dart';
 @JsonSerializable()
 class LicenseType {
   String assetClass;
-  String issuingCountry;
+  String? issuingCountry;
 
-  LicenseType({required this.assetClass, required this.issuingCountry});
+  LicenseType({required this.assetClass, this.issuingCountry});
 
   factory LicenseType.fromJson(Map<String, dynamic> json) =>
       _$LicenseTypeFromJson(json);

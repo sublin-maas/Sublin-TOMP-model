@@ -4,20 +4,21 @@ part 'license.g.dart';
 
 @JsonSerializable()
 class License {
-  String assetClass;
-  String issuingCountry;
-  String number;
-  String licenseCode;
-  DateTime validUntil;
+  String? assetClass;
+  String? issuingCountry;
+  String? number;
+  String? licenseCode;
+  DateTime? validUntil;
 
   License(
-      {required this.assetClass,
-      required this.issuingCountry,
-      required this.number,
-      required this.licenseCode,
-      required this.validUntil});
+      {this.assetClass,
+      this.issuingCountry,
+      this.number,
+      this.licenseCode,
+      this.validUntil});
 
-  factory License.fromJson(Map<String, dynamic> json) => _$LicenseFromJson(json);
+  factory License.fromJson(Map<String, dynamic> json) =>
+      _$LicenseFromJson(json);
 
   Map<String, dynamic> toJson() => _$LicenseToJson(this);
 

@@ -8,11 +8,13 @@ part of 'license.dart';
 
 License _$LicenseFromJson(Map<String, dynamic> json) {
   return License(
-    assetClass: json['assetClass'] as String,
-    issuingCountry: json['issuingCountry'] as String,
-    number: json['number'] as String,
-    licenseCode: json['licenseCode'] as String,
-    validUntil: DateTime.parse(json['validUntil'] as String),
+    assetClass: json['assetClass'] as String?,
+    issuingCountry: json['issuingCountry'] as String?,
+    number: json['number'] as String?,
+    licenseCode: json['licenseCode'] as String?,
+    validUntil: json['validUntil'] == null
+        ? null
+        : DateTime.parse(json['validUntil'] as String),
   );
 }
 
@@ -21,5 +23,5 @@ Map<String, dynamic> _$LicenseToJson(License instance) => <String, dynamic>{
       'issuingCountry': instance.issuingCountry,
       'number': instance.number,
       'licenseCode': instance.licenseCode,
-      'validUntil': instance.validUntil.toIso8601String(),
+      'validUntil': instance.validUntil?.toIso8601String(),
     };

@@ -4,16 +4,12 @@ part 'phone.g.dart';
 
 @JsonSerializable()
 class Phone {
-  bool preferred;
-  String number;
-  String kind;
-  String type;
+  bool? preferred;
+  String? number;
+  String? kind;
+  String? type;
 
-  Phone(
-      {required this.preferred,
-      required this.number,
-      required this.kind,
-      required this.type});
+  Phone({this.preferred, this.number, this.kind, this.type});
 
   factory Phone.fromJson(Map<String, dynamic> json) => _$PhoneFromJson(json);
 

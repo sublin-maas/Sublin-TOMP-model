@@ -9,9 +9,9 @@ part of 'card_type.dart';
 CardType _$CardTypeFromJson(Map<String, dynamic> json) {
   return CardType(
     acceptors:
-        (json['acceptors'] as List<dynamic>).map((e) => e as String).toList(),
-    assetClass: json['assetClass'] as String,
-    subType: json['subType'] as String,
+        (json['acceptors'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    assetClass: json['assetClass'] as String?,
+    subType: json['subType'] as String?,
     type: json['type'] as String,
   );
 }

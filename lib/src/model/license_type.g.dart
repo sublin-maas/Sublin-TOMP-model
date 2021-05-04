@@ -9,7 +9,7 @@ part of 'license_type.dart';
 LicenseType _$LicenseTypeFromJson(Map<String, dynamic> json) {
   return LicenseType(
     assetClass: json['assetClass'] as String,
-    issuingCountry: json['issuingCountry'] as String,
+    issuingCountry: json['issuingCountry'] as String?,
   );
 }
 

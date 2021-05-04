@@ -7,21 +7,25 @@ part 'traveler.g.dart';
 
 @JsonSerializable()
 class Traveler {
-  bool isValidated;
-  int age;
-  String referenceNumber;
-  List<CardType> cardTypes;
-  List<LicenseType> licenseTypes;
-  Requirements requirements;
+  bool? isValidated;
+  int? age;
+  String? referenceNumber;
+  List<CardType>? cardTypes;
+  List<LicenseType>? licenseTypes;
+  Requirements? requirements;
 
   Traveler({
-    required this.isValidated,
-    required this.age,
-    required this.referenceNumber,
-    required this.cardTypes,
-    required this.licenseTypes,
-    required this.requirements,
+    this.isValidated,
+    this.age,
+    this.referenceNumber,
+    this.cardTypes,
+    this.licenseTypes,
+    this.requirements,
   });
+
+  factory Traveler.fromJson(Map<String, dynamic> json) => _$TravelerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$TravelerToJson(this);
 
   @override
   String toString() {

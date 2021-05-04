@@ -8,16 +8,16 @@ part of 'card.dart';
 
 Card _$CardFromJson(Map<String, dynamic> json) {
   return Card(
-    type: json['type'] as String,
-    subType: json['subType'] as String,
-    assetClass: json['assetClass'] as String,
-    cardDescription: json['cardDescription'] as String,
     cardNumber: json['cardNumber'] as String,
-    cardAdditionalNumber: json['cardAdditionalNumber'] as String,
-    country: json['country'] as String,
-    acceptors:
-        (json['acceptors'] as List<dynamic>).map((e) => e as String).toList(),
     validUntil: DateTime.parse(json['validUntil'] as String),
+    type: json['type'] as String?,
+    subType: json['subType'] as String?,
+    assetClass: json['assetClass'] as String?,
+    cardDescription: json['cardDescription'] as String?,
+    cardAdditionalNumber: json['cardAdditionalNumber'] as String?,
+    country: json['country'] as String?,
+    acceptors:
+        (json['acceptors'] as List<dynamic>?)?.map((e) => e as String).toList(),
   );
 }
 

@@ -8,7 +8,7 @@ part of 'requirements.dart';
 
 Requirements _$RequirementsFromJson(Map<String, dynamic> json) {
   return Requirements(
-    description: json['description'] as String,
+    description: json['description'] as String?,
   );
 }
 

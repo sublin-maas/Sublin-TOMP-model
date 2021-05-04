@@ -8,37 +8,42 @@ part of 'customer.dart';
 
 Customer _$CustomerFromJson(Map<String, dynamic> json) {
   return Customer(
-    isValidated: json['isValidated'] as bool,
-    age: json['age'] as int,
-    referenceNumber: json['referenceNumber'] as String,
-    cardTypes: (json['cardTypes'] as List<dynamic>)
-        .map((e) => CardType.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    licenseTypes: (json['licenseTypes'] as List<dynamic>)
-        .map((e) => LicenseType.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    requirements:
-        Requirements.fromJson(json['requirements'] as Map<String, dynamic>),
     id: json['id'] as String,
-    travelerReference: json['travelerReference'] as String,
-    initials: json['initials'] as String,
-    firstName: json['firstName'] as String,
-    lastName: json['lastName'] as String,
-    middleName: json['middleName'] as String,
-    prefix: json['prefix'] as String,
-    postfix: json['postfix'] as String,
-    phones: (json['phones'] as List<dynamic>)
-        .map((e) => Phone.fromJson(e as Map<String, dynamic>))
+    isValidated: json['isValidated'] as bool?,
+    age: json['age'] as int?,
+    referenceNumber: json['referenceNumber'] as String?,
+    cardTypes: (json['cardTypes'] as List<dynamic>?)
+        ?.map((e) => CardType.fromJson(e as Map<String, dynamic>))
         .toList(),
-    email: json['email'] as String,
-    birthDate: DateTime.parse(json['birthDate'] as String),
-    address: Address.fromJson(json['address'] as Map<String, dynamic>),
-    photo: json['photo'] as String,
-    cards: (json['cards'] as List<dynamic>)
-        .map((e) => Card.fromJson(e as Map<String, dynamic>))
+    licenseTypes: (json['licenseTypes'] as List<dynamic>?)
+        ?.map((e) => LicenseType.fromJson(e as Map<String, dynamic>))
         .toList(),
-    licenses: (json['licenses'] as List<dynamic>)
-        .map((e) => License.fromJson(e as Map<String, dynamic>))
+    requirements: json['requirements'] == null
+        ? null
+        : Requirements.fromJson(json['requirements'] as Map<String, dynamic>),
+    travelerReference: json['travelerReference'] as String?,
+    initials: json['initials'] as String?,
+    firstName: json['firstName'] as String?,
+    lastName: json['lastName'] as String?,
+    middleName: json['middleName'] as String?,
+    prefix: json['prefix'] as String?,
+    postfix: json['postfix'] as String?,
+    phones: (json['phones'] as List<dynamic>?)
+        ?.map((e) => Phone.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    email: json['email'] as String?,
+    birthDate: json['birthDate'] == null
+        ? null
+        : DateTime.parse(json['birthDate'] as String),
+    address: json['address'] == null
+        ? null
+        : Address.fromJson(json['address'] as Map<String, dynamic>),
+    photo: json['photo'] as String?,
+    cards: (json['cards'] as List<dynamic>?)
+        ?.map((e) => Card.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    licenses: (json['licenses'] as List<dynamic>?)
+        ?.map((e) => License.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }
@@ -60,7 +65,7 @@ Map<String, dynamic> _$CustomerToJson(Customer instance) => <String, dynamic>{
       'postfix': instance.postfix,
       'phones': instance.phones,
       'email': instance.email,
-      'birthDate': instance.birthDate.toIso8601String(),
+      'birthDate': instance.birthDate?.toIso8601String(),
       'address': instance.address,
       'photo': instance.photo,
       'cards': instance.cards,
