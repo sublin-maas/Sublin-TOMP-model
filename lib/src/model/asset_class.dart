@@ -1,88 +1,140 @@
-part of swagger.api;
+import 'package:json_annotation/json_annotation.dart';
 
-class AssetClass {
-  /// The underlying value of this enum member.
-  String value;
+enum AssetClass {
+  AIR,
+  BUS,
+  TROLLEYBUS,
+  TRAM,
+  COACH,
+  RAIL,
+  INTERCITYRAIL,
+  URBANRAIL,
+  METRO,
+  WATER,
+  CABLEWAY,
+  FUNICULAR,
+  TAXI,
+  SELFDRIVE,
+  FOOT,
+  BICYCLE,
+  MOTORCYCLE,
+  CAR,
+  SHUTTLE,
+  OTHER,
+  PARKING,
+  MOPED,
+  STEP,
+  UNKNOWN,
+}
 
-  AssetClass._internal(this.value);
+class AssetClassSerialiser implements JsonConverter<AssetClass, String> {
+  const AssetClassSerialiser();
 
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass aIR_ = AssetClass._internal("AIR");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass bUS_ = AssetClass._internal("BUS");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass tROLLEYBUS_ = AssetClass._internal("TROLLEYBUS");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass tRAM_ = AssetClass._internal("TRAM");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass cOACH_ = AssetClass._internal("COACH");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass rAIL_ = AssetClass._internal("RAIL");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass iNTERCITYRAIL_ = AssetClass._internal("INTERCITYRAIL");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass uRBANRAIL_ = AssetClass._internal("URBANRAIL");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass mETRO_ = AssetClass._internal("METRO");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass wATER_ = AssetClass._internal("WATER");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass cABLEWAY_ = AssetClass._internal("CABLEWAY");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass fUNICULAR_ = AssetClass._internal("FUNICULAR");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass tAXI_ = AssetClass._internal("TAXI");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass sELFDRIVE_ = AssetClass._internal("SELFDRIVE");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass fOOT_ = AssetClass._internal("FOOT");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass bICYCLE_ = AssetClass._internal("BICYCLE");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass mOTORCYCLE_ = AssetClass._internal("MOTORCYCLE");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass cAR_ = AssetClass._internal("CAR");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass sHUTTLE_ = AssetClass._internal("SHUTTLE");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass oTHER_ = AssetClass._internal("OTHER");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass pARKING_ = AssetClass._internal("PARKING");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass mOPED_ = AssetClass._internal("MOPED");
-  /// These classes are taken from the NeTeX standard, but ALL and UNKNOWN are removed. On the other hand OTHER and PARKING are added.
-  static AssetClass sTEP_ = AssetClass._internal("STEP");
-
-  AssetClass.fromJson(dynamic data) {
-    switch (data) {
-          case "AIR": value = data; break;
-          case "BUS": value = data; break;
-          case "TROLLEYBUS": value = data; break;
-          case "TRAM": value = data; break;
-          case "COACH": value = data; break;
-          case "RAIL": value = data; break;
-          case "INTERCITYRAIL": value = data; break;
-          case "URBANRAIL": value = data; break;
-          case "METRO": value = data; break;
-          case "WATER": value = data; break;
-          case "CABLEWAY": value = data; break;
-          case "FUNICULAR": value = data; break;
-          case "TAXI": value = data; break;
-          case "SELFDRIVE": value = data; break;
-          case "FOOT": value = data; break;
-          case "BICYCLE": value = data; break;
-          case "MOTORCYCLE": value = data; break;
-          case "CAR": value = data; break;
-          case "SHUTTLE": value = data; break;
-          case "OTHER": value = data; break;
-          case "PARKING": value = data; break;
-          case "MOPED": value = data; break;
-          case "STEP": value = data; break;
-    default: throw('Unknown enum value to decode: $data');
+  @override
+  AssetClass fromJson(String json) {
+    switch (json) {
+      case 'AIR':
+        return AssetClass.AIR;
+      case 'BUS':
+        return AssetClass.BUS;
+      case 'TROLLEYBUS':
+        return AssetClass.TROLLEYBUS;
+      case 'TRAM':
+        return AssetClass.TRAM;
+      case 'COACH':
+        return AssetClass.COACH;
+      case 'RAIL':
+        return AssetClass.RAIL;
+      case 'INTERCITYRAIL':
+        return AssetClass.INTERCITYRAIL;
+      case 'URBANRAIL':
+        return AssetClass.URBANRAIL;
+      case 'METRO':
+        return AssetClass.METRO;
+      case 'WATER':
+        return AssetClass.WATER;
+      case 'CABLEWAY':
+        return AssetClass.CABLEWAY;
+      case 'FUNICULAR':
+        return AssetClass.FUNICULAR;
+      case 'TAXI':
+        return AssetClass.TAXI;
+      case 'SELFDRIVE':
+        return AssetClass.SELFDRIVE;
+      case 'FOOT':
+        return AssetClass.FOOT;
+      case 'BICYCLE':
+        return AssetClass.BICYCLE;
+      case 'MOTORCYCLE':
+        return AssetClass.MOTORCYCLE;
+      case 'CAR':
+        return AssetClass.CAR;
+      case 'SHUTTLE':
+        return AssetClass.SHUTTLE;
+      case 'OTHER':
+        return AssetClass.OTHER;
+      case 'PARKING':
+        return AssetClass.PARKING;
+      case 'MOPED':
+        return AssetClass.MOPED;
+      case 'STEP':
+        return AssetClass.STEP;
+      default:
+        return AssetClass.UNKNOWN;
     }
   }
 
-  static dynamic encode(AssetClass data) {
-    return data.value;
+  @override
+  String toJson(AssetClass object) {
+    switch (object) {
+      case AssetClass.AIR:
+        return 'AIR';
+      case AssetClass.BUS:
+        return 'BUS';
+      case AssetClass.TROLLEYBUS:
+        return 'TROLLEYBUS';
+      case AssetClass.TRAM:
+        return 'TRAM';
+      case AssetClass.COACH:
+        return 'COACH';
+      case AssetClass.RAIL:
+        return 'RAIL';
+      case AssetClass.INTERCITYRAIL:
+        return 'INTERCITYRAIL';
+      case AssetClass.URBANRAIL:
+        return 'URBANRAIL';
+      case AssetClass.METRO:
+        return 'METRO';
+      case AssetClass.WATER:
+        return 'WATER';
+      case AssetClass.CABLEWAY:
+        return 'CABLEWAY';
+      case AssetClass.FUNICULAR:
+        return 'FUNICULAR';
+      case AssetClass.TAXI:
+        return 'TAXI';
+      case AssetClass.SELFDRIVE:
+        return 'SELFDRIVE';
+      case AssetClass.FOOT:
+        return 'FOOT';
+      case AssetClass.BICYCLE:
+        return 'BICYCLE';
+      case AssetClass.MOTORCYCLE:
+        return 'MOTORCYCLE';
+      case AssetClass.CAR:
+        return 'CAR';
+      case AssetClass.SHUTTLE:
+        return 'SHUTTLE';
+      case AssetClass.OTHER:
+        return 'OTHER';
+      case AssetClass.PARKING:
+        return 'PARKING';
+      case AssetClass.MOPED:
+        return 'MOPED';
+      case AssetClass.STEP:
+        return 'STEP';
+      case AssetClass.UNKNOWN:
+        return 'UNKNOWN';
+    }
   }
 }

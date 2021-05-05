@@ -8,7 +8,7 @@ class FarePartScaleTypeSerialiser
 
   @override
   FarePartScaleType fromJson(String json) {
-    switch (json) {
+    switch (json.toUpperCase()) {
       case 'KM':
         return FarePartScaleType.KM;
       case 'MINUTE':

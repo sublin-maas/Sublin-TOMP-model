@@ -1,41 +1,75 @@
+import 'package:sublin_tomp_model/src/model/easy_accessibility.dart';
+import 'package:sublin_tomp_model/src/model/energy_label.dart';
+import 'package:sublin_tomp_model/src/model/fuel.dart';
+import 'package:sublin_tomp_model/src/model/gearbox.dart';
 import 'package:sublin_tomp_model/src/model/place.dart';
+import 'package:sublin_tomp_model/src/model/propulsion.dart';
 
 class AssetProperties {
-  String name;
-  Place location;
-  String fuel;
-  //enum fuelEnum {  NONE,  GASOLINE,  DIESEL,  ELECTRIC,  HYBRID_GASOLINE,  HYBRID_DIESEL,  HYBRID_GAS,  HYDROGEN,  GAS,  BIO_MASS,  KEROSINE,  OTHER,  };
-  String energyLabel;
-  //enum energyLabelEnum {  A,  B,  C,  D,  E,  };
-  double co2PerKm;
-  String brand;
-  String model;
-  int buildingYear;
-  bool travelAbroad;
-  bool airConditioning;
-  bool cabrio;
-  String colour;
-  String cargo;
-  String easyAccessibility;
-  //enum easyAccessibilityEnum {  LIFT,  ESCALATOR,  GROUND_LEVEL,  SIGHTIMPAIRMENT,  HEARINGIMPAIRMENT,  WHEELCHAIR,  };
-  int gears;
-  String gearbox;
-  //enum gearboxEnum {  MANUAL,  AUTOMATIC,  SEMIAUTOMATIC,  };
-  String image;
-  bool infantSeat;
-  int persons;
-  bool pets;
-  String propulsion;
-  //enum propulsionEnum {  MUSCLE,  ELECTRIC,  GASOLINE,  DIESEL,  HYBRID,  LPG,  HYDROGEN,  };
-  bool smoking;
-  int stateOfCharge;
-  bool towingHook;
-  bool undergroundParking;
-  bool winterTires;
-  String other;
-  Map meta = {};
+  String? name;
+  Place? location;
+  @FuelSerialiser()
+  Fuel? fuel;
+  @EnergyLabelSerialiser()
+  EnergyLabel? energyLabel;
+  double? co2PerKm;
+  String? brand;
+  String? model;
+  int? buildingYear;
+  bool? travelAbroad;
+  bool? airConditioning;
+  bool? cabrio;
+  String? colour;
+  String? cargo;
+  @EasyAccessibilitySerialiser()
+  EasyAccessibility? easyAccessibility;
+  int? gears;
+  @GearboxSerialiser()
+  Gearbox? gearbox;
+  String? image;
+  bool? infantSeat;
+  int? persons;
+  bool? pets;
+  @PropulsionSerialiser()
+  Propulsion? propulsion;
+  bool? smoking;
+  int? stateOfCharge;
+  bool? towingHook;
+  bool? undergroundParking;
+  bool? winterTires;
+  String? other;
+  Object? meta;
 
-  AssetProperties();
+  AssetProperties({
+    this.name,
+    this.location,
+    this.fuel,
+    this.energyLabel,
+    this.co2PerKm,
+    this.brand,
+    this.model,
+    this.buildingYear,
+    this.travelAbroad,
+    this.airConditioning,
+    this.cabrio,
+    this.colour,
+    this.cargo,
+    this.easyAccessibility,
+    this.gears,
+    this.gearbox,
+    this.image,
+    this.infantSeat,
+    this.persons,
+    this.pets,
+    this.propulsion,
+    this.smoking,
+    this.stateOfCharge,
+    this.towingHook,
+    this.undergroundParking,
+    this.winterTires,
+    this.other,
+    this.meta,
+  });
 
   @override
   String toString() {

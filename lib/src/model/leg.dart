@@ -1,5 +1,9 @@
 
+import 'package:sublin_tomp_model/src/model/asset.dart';
+import 'package:sublin_tomp_model/src/model/asset_type.dart';
+import 'package:sublin_tomp_model/src/model/fare.dart';
 import 'package:sublin_tomp_model/src/model/place.dart';
+import 'package:sublin_tomp_model/src/model/suboperator.dart';
 
 class Leg {
   String? id = null;
@@ -8,10 +12,10 @@ class Leg {
   DateTime? departureTime = null;
   DateTime? arrivalTime = null;
   List<String>? travelerReferenceNumbers = [];
-  AllOflegAssetType? assetType = null;
+  AssetType? assetType = null;
   int? legSequenceNumber = null;
-  AllOflegAsset? asset = null;
-  AllOflegPricing? pricing = null;
+  Asset? asset = null;
+  Fare? pricing = null;
   Suboperator? suboperator = null;
   List<Condition>? conditions = [];
   LegState? state = null;

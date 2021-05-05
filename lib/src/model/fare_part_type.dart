@@ -7,7 +7,7 @@ class FarePartTypeSerialiser implements JsonConverter<FarePartType, String> {
 
   @override
   FarePartType fromJson(String json) {
-    switch (json) {
+    switch (json.toUpperCase()) {
       case 'FIXED':
         return FarePartType.FIXED;
       case 'FLEX':

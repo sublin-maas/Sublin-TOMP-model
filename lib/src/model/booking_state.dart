@@ -19,7 +19,7 @@ class BookingStateSerialiser implements JsonConverter<BookingState, String> {
 
   @override
   BookingState fromJson(String json) {
-    switch (json) {
+    switch (json.toUpperCase()) {
       case 'NEW':
         return BookingState.NEW;
       case 'PENDING':

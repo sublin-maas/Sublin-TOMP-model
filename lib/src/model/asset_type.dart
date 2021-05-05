@@ -1,12 +1,16 @@
 
+import 'package:sublin_tomp_model/src/model/asset.dart';
+import 'package:sublin_tomp_model/src/model/asset_class.dart';
+import 'package:sublin_tomp_model/src/model/asset_properties.dart';
+
 class AssetType {
-  String id = null;
-  String? stationId = null;
-  int? nrAvailable = null;
-  List<Asset>? assets = [];
-  AssetClass? assetClass = null;
-  String? assetSubClass = null;
-  AssetProperties? sharedProperties = null;
+  String id;
+  String? stationId;
+  int? nrAvailable;
+  List<Asset>? asset;
+  AssetClass? assetClass;
+  String? assetSubClass;
+  AssetProperties? sharedProperties;
   
   AssetType();
 

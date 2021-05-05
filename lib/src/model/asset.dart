@@ -1,15 +1,17 @@
 
-class Asset {
-  String id = null;
-  bool? isReserved = null;
-  DateTime? isReservedFrom = null;
-  DateTime? isReservedTo = null;
-  bool? isDisabled = null;
-  String? rentalUrl = null;
-  String? rentalUrlAndroid = null;
-  String? rentalUrlIOS = null;
+import 'package:sublin_tomp_model/src/model/asset_properties.dart';
 
-  AssetProperties overriddenProperties = null;
+class Asset {
+  String id;
+  bool? isReserved;
+  DateTime? isReservedFrom;
+  DateTime? isReservedTo;
+  bool? isDisabled;
+  String? rentalUrl;
+  String? rentalUrlAndroid;
+  String? rentalUrlIOS;
+
+  AssetProperties overriddenProperties;
 
   Asset();
 
