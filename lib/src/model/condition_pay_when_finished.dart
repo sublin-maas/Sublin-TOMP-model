@@ -13,6 +13,12 @@ class ConditionPayWhenFinished extends Condition {
       String? id})
       : super(conditionType: conditionType, id: id);
 
+  factory ConditionPayWhenFinished.fromJson(Map<String, dynamic> json) =>
+      _$ConditionPayWhenFinishedFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ConditionPayWhenFinishedToJson(this);
+
   @override
   String toString() =>
       'ConditionPayWhenFinished[conditionType: $conditionType, id: $id, ultimateResponseTime: $ultimateResponseTime]';

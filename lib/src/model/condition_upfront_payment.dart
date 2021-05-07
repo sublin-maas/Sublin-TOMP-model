@@ -1,40 +1,21 @@
-part of swagger.api;
+import 'package:json_annotation/json_annotation.dart';
+import 'package:sublin_tomp_model/src/model/condition.dart';
 
-class ConditionUpfrontPayment {
-  /* The specific subclass of condition, should match the schema name exactly */
-  String conditionType = null;
-/* An identifier for this condition that can be used to refer to this condition */
-  String id = null;
+part 'condition_upfront_payment.g.dart';
 
-  ConditionUpfrontPayment();
+@JsonSerializable()
+class ConditionUpfrontPayment extends Condition {
+  ConditionUpfrontPayment({required String conditionType, String? id})
+      : super(conditionType: conditionType, id: id);
+
+  factory ConditionUpfrontPayment.fromJson(Map<String, dynamic> json) =>
+      _$ConditionUpfrontPaymentFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ConditionUpfrontPaymentToJson(this);
 
   @override
   String toString() {
     return 'ConditionUpfrontPayment[conditionType=$conditionType, id=$id, ]';
-  }
-
-  ConditionUpfrontPayment.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    conditionType = json['conditionType'];
-    id = json['id'];
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'conditionType': conditionType,
-      'id': id
-     };
-  }
-
-  static List<ConditionUpfrontPayment> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ConditionUpfrontPayment>() : json.map((value) => new ConditionUpfrontPayment.fromJson(value)).toList();
-  }
-
-  static Map<String, ConditionUpfrontPayment> mapFromJson(Map<String, Map<String, dynamic>> json) {
-    var map = new Map<String, ConditionUpfrontPayment>();
-    if (json != null && json.length > 0) {
-      json.forEach((String key, Map<String, dynamic> value) => map[key] = new ConditionUpfrontPayment.fromJson(value));
-    }
-    return map;
   }
 }

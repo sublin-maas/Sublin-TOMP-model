@@ -13,6 +13,12 @@ class ConditionRequireBookingData extends Condition {
       {required String conditionType, required this.requiredFields, String? id})
       : super(conditionType: conditionType, id: id);
 
+  factory ConditionRequireBookingData.fromJson(Map<String, dynamic> json) =>
+      _$ConditionRequireBookingDataFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ConditionRequireBookingDataToJson(this);
+
   @override
   String toString() {
     return 'ConditionRequireBookingData[conditionType=$conditionType, id=$id, requiredFields=$requiredFields, ]';

@@ -1,20 +1,29 @@
-part of swagger.api;
+import 'package:json_annotation/json_annotation.dart';
+import 'package:sublin_tomp_model/src/model/condition.dart';
+import 'package:sublin_tomp_model/src/model/coordinates.dart';
+import 'package:sublin_tomp_model/src/model/system_hours.dart';
 
-class ConditionReturnArea {
-  /* The specific subclass of condition, should match the schema name exactly */
-  String conditionType = null;
-/* An identifier for this condition that can be used to refer to this condition */
-  String id = null;
-/* station to which the asset should be returned */
-  String stationId = null;
-/* area in which the asset should be returned as GeoJSON Polygon coordinates */
-  Object returnArea = null;
+@JsonSerializable()
+class ConditionReturnArea extends Condition {
+  String? stationId;
+  List<List<List<double>>>? returnArea;
+  Coordinates? coordinates;
+  List<SystemHours>? returnHours;
 
-  Coordinates coordinates = null;
-/* the return hours of the facility (if different from operating-hours) */
-  List<SystemHours> returnHours = [];
+  ConditionReturnArea(
+      {required String conditionType,
+      String? id,
+      this.stationId,
+      this.returnArea,
+      this.coordinates,
+      this.returnHours})
+      : super(conditionType: conditionType, id: id);
 
-  ConditionReturnArea();
+  factory ConditionReturnArea.fromJson(Map<String, dynamic> json) =>
+      _$ConditionReturnAreaFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ConditionReturnAreaToJson(this);
 
   @override
   String toString() {

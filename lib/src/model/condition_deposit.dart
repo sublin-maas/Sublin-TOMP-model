@@ -21,6 +21,11 @@ class ConditionDeposit extends Condition {
       this.vatCountryCode})
       : super(conditionType: conditionType, id: id);
 
+  factory ConditionDeposit.fromJson(Map<String, dynamic> json) => _$ConditionDepositFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$ConditionDepositToJson(this);
+
   @override
   String toString() {
     return 'ConditionDeposit[amount=$amount, amountExVat=$amountExVat, currencyCode=$currencyCode, vatRate=$vatRate, vatCountryCode=$vatCountryCode, conditionType=$conditionType, id=$id, ]';

@@ -1,7 +1,7 @@
 ## Sublin TOMP cliet
 
 TOMP is `Transport Operator Mobility-as-a-service Provider`
-[API](https://app.swaggerhub.com/apis/TOMP-API-WG/transport-operator_maas_provider_api/1.1.0#/info).
+[API](https://app.swaggerhub.com/apis/TOMP-API-WG/transport-operator_maas_provider_api/1.2.0#/info).
 [GitHub](https://github.com/TOMP-WG/TOMP-API/)
 
 

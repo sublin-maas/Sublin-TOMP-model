@@ -1,32 +1,62 @@
-
+import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/asset.dart';
 import 'package:sublin_tomp_model/src/model/asset_type.dart';
+import 'package:sublin_tomp_model/src/model/condition.dart';
 import 'package:sublin_tomp_model/src/model/fare.dart';
+import 'package:sublin_tomp_model/src/model/leg_state.dart';
 import 'package:sublin_tomp_model/src/model/place.dart';
 import 'package:sublin_tomp_model/src/model/suboperator.dart';
+import 'package:sublin_tomp_model/src/model/token.dart';
 
+part 'leg.g.dart';
+
+@JsonSerializable()
 class Leg {
-  String? id = null;
-  Place from = null;
-  Place? to = null;
-  DateTime? departureTime = null;
-  DateTime? arrivalTime = null;
-  List<String>? travelerReferenceNumbers = [];
-  AssetType? assetType = null;
-  int? legSequenceNumber = null;
-  Asset? asset = null;
-  Fare? pricing = null;
-  Suboperator? suboperator = null;
-  List<Condition>? conditions = [];
-  LegState? state = null;
-  Duration? departureDelay = null;
-  Duration? arrivalDelay = null;
-  Distance? distance = null;
-  AllOflegProgressGeometry? progressGeometry = null;
-  AllOflegTicket? ticket = null;
-  AllOflegAssetAccessData? assetAccessData = null;
+  final String? id;
+  final Place from;
+  final Place? to;
+  final DateTime? departureTime;
+  final DateTime? arrivalTime;
+  final List<String>? travelerReferenceNumbers;
+  final AssetType? assetType;
+  final int? legSequenceNumber;
+  final Asset? asset;
+  final Fare? pricing;
+  final Suboperator? suboperator;
+  final List<Condition>? conditions;
+  @LegStateSerialiser()
+  final LegState? state;
+  final Duration? departureDelay;
+  final Duration? arrivalDelay;
+  final int? distance;
+  final List<List<double>>? progressGeometry;
+  final Token? ticket;
+  final List<Token>? assetAccessData;
 
-  Leg();
+  Leg(
+      {this.id,
+      required this.from,
+      this.to,
+      this.departureTime,
+      this.arrivalTime,
+      this.travelerReferenceNumbers,
+      this.assetType,
+      this.legSequenceNumber,
+      this.asset,
+      this.pricing,
+      this.suboperator,
+      this.conditions,
+      this.state,
+      this.departureDelay,
+      this.arrivalDelay,
+      this.distance,
+      this.progressGeometry,
+      this.ticket,
+      this.assetAccessData});
+
+  factory Leg.fromJson(Map<String, dynamic> json) => _$LegJsonFromJson(json);
+
+  Map<String, dynamic> toJon() => _$LegToJson(this);
 
   @override
   String toString() {
