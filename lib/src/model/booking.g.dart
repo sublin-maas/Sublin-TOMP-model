@@ -19,7 +19,7 @@ Booking _$BookingFromJson(Map<String, dynamic> json) {
     customer: json['customer'] == null
         ? null
         : Customer.fromJson(json['customer'] as Map<String, dynamic>),
-    state: _$enumDecodeNullable(_$BookingStateEnumMap, json['state']),
+    state: const BookingStateSerialiser().fromJson(json['state'] as String?),
     legs: (json['legs'] as List<dynamic>)
         .map((e) => Leg.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -35,58 +35,7 @@ Map<String, dynamic> _$BookingToJson(Booking instance) => <String, dynamic>{
       'callbackUrl': instance.callbackUrl,
       'to': instance.to,
       'customer': instance.customer,
-      'state': _$BookingStateEnumMap[instance.state],
+      'state': const BookingStateSerialiser().toJson(instance.state),
       'legs': instance.legs,
       'pricing': instance.pricing,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
-
-K? _$enumDecodeNullable<K, V>(
-  Map<K, V> enumValues,
-  dynamic source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
-}
-
-const _$BookingStateEnumMap = {
-  BookingState.NEW: 'NEW',
-  BookingState.PENDING: 'PENDING',
-  BookingState.REJECTED: 'REJECTED',
-  BookingState.RELEASED: 'RELEASED',
-  BookingState.EXPIRED: 'EXPIRED',
-  BookingState.CONDITIONAL_CONFIRMED: 'CONDITIONAL_CONFIRMED',
-  BookingState.CONFIRMED: 'CONFIRMED',
-  BookingState.CANCELED: 'CANCELED',
-  BookingState.STARTED: 'STARTED',
-  BookingState.FINISHED: 'FINISHED',
-  BookingState.UNKNOWN: 'UNKNOWN',
-};

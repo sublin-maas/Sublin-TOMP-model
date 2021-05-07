@@ -2,11 +2,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 enum Day { MON, TUE, WED, THU, FRI, SAT, SUN, UNKNOWN }
 
-class DaySerialiser implements JsonConverter<Day, String> {
+class DaySerialiser implements JsonConverter<Day?, String?> {
   const DaySerialiser();
 
   @override
-  Day fromJson(String json) {
+  Day? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json) {
       case 'MON':
         return Day.MON;
@@ -28,7 +30,9 @@ class DaySerialiser implements JsonConverter<Day, String> {
   }
 
   @override
-  String toJson(Day object) {
+  String? toJson(Day? object) {
+    if (object == null) return null;
+
     switch (object) {
       case Day.MON:
         return 'MON';
@@ -50,16 +54,16 @@ class DaySerialiser implements JsonConverter<Day, String> {
   }
 }
 
-class DaysListSerialiser implements JsonConverter<List<Day>, List<String>> {
-  final JsonConverter<Day, String> delegate;
+class DaysListSerialiser implements JsonConverter<List<Day?>?, List<String?>?> {
+  final JsonConverter<Day?, String?> delegate;
 
   const DaysListSerialiser({this.delegate = const DaySerialiser()});
 
   @override
-  List<Day> fromJson(List<String> json) =>
-      json.map((e) => delegate.fromJson(e)).toList();
+  List<Day?>? fromJson(List<String?>? json) =>
+      json?.map((e) => delegate.fromJson(e)).toList();
 
   @override
-  List<String> toJson(List<Day> object) =>
-      object.map((e) => delegate.toJson(e)).toList();
+  List<String?>? toJson(List<Day?>? object) =>
+      object?.map((e) => delegate.toJson(e)).toList();
 }

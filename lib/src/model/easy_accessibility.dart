@@ -11,11 +11,13 @@ enum EasyAccessibility {
 }
 
 class EasyAccessibilitySerialiser
-    implements JsonConverter<EasyAccessibility, String> {
+    implements JsonConverter<EasyAccessibility?, String?> {
   const EasyAccessibilitySerialiser();
 
   @override
-  EasyAccessibility fromJson(String json) {
+  EasyAccessibility? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'LIFT':
         return EasyAccessibility.LIFT;
@@ -35,7 +37,9 @@ class EasyAccessibilitySerialiser
   }
 
   @override
-  String toJson(EasyAccessibility object) {
+  String? toJson(EasyAccessibility? object) {
+    if (object == null) return null;
+
     switch (object) {
       case EasyAccessibility.LIFT:
         return 'LIFT';

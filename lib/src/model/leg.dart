@@ -56,7 +56,7 @@ class Leg {
 
   factory Leg.fromJson(Map<String, dynamic> json) => _$LegFromJson(json);
 
-  Map<String, dynamic> toJon() => _$LegToJson(this);
+  Map<String, dynamic> toJson() => _$LegToJson(this);
 
   @override
   String toString() {

@@ -19,7 +19,7 @@ class Booking {
   final BookingState? state;
   final List<Leg> legs;
   final Fare? pricing;
-  final Object? extraData = {};
+  final dynamic? extraData = {};
 
   Booking(
       {this.id,

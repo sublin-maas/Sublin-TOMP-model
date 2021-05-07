@@ -19,29 +19,31 @@ enum BookingRequiredField {
 }
 
 class BookingRequiredFieldsListSerialiser
-    implements JsonConverter<List<BookingRequiredField>, List<String>> {
-  static const JsonConverter<BookingRequiredField, String> delegate =
+    implements JsonConverter<List<BookingRequiredField?>?, List<String?>?> {
+  static const JsonConverter<BookingRequiredField?, String?> delegate =
       BookingRequiredFieldSerialiser();
 
   const BookingRequiredFieldsListSerialiser();
 
   @override
-  List<BookingRequiredField> fromJson(List<String> json) {
-    return json.map((e) => delegate.fromJson(e)).toList();
+  List<BookingRequiredField?>? fromJson(List<String?>? json) {
+    return json?.map((e) => delegate.fromJson(e)).toList();
   }
 
   @override
-  List<String> toJson(List<BookingRequiredField> object) {
-    return object.map((e) => delegate.toJson(e)).toList();
+  List<String?>? toJson(List<BookingRequiredField?>? object) {
+    return object?.map((e) => delegate.toJson(e)).toList();
   }
 }
 
 class BookingRequiredFieldSerialiser
-    implements JsonConverter<BookingRequiredField, String> {
+    implements JsonConverter<BookingRequiredField?, String?> {
   const BookingRequiredFieldSerialiser();
 
   @override
-  BookingRequiredField fromJson(String json) {
+  BookingRequiredField? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json) {
       case 'FROM_ADDRESS':
         return BookingRequiredField.FROM_ADDRESS;
@@ -77,7 +79,9 @@ class BookingRequiredFieldSerialiser
   }
 
   @override
-  String toJson(BookingRequiredField object) {
+  String? toJson(BookingRequiredField? object) {
+    if (object == null) return null;
+
     switch (object) {
       case BookingRequiredField.FROM_ADDRESS:
         return 'FROM_ADDRESS';

@@ -2,11 +2,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 enum FarePartType { FIXED, FLEX, MAX, UNKNOWN }
 
-class FarePartTypeSerialiser implements JsonConverter<FarePartType, String> {
+class FarePartTypeSerialiser implements JsonConverter<FarePartType?, String?> {
   const FarePartTypeSerialiser();
 
   @override
-  FarePartType fromJson(String json) {
+  FarePartType? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'FIXED':
         return FarePartType.FIXED;
@@ -20,7 +22,9 @@ class FarePartTypeSerialiser implements JsonConverter<FarePartType, String> {
   }
 
   @override
-  String toJson(FarePartType type) {
+  String? toJson(FarePartType? type) {
+    if (type == null) return null;
+
     switch (type) {
       case FarePartType.FIXED:
         return 'FIXED';

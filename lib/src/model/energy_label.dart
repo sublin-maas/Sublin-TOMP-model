@@ -2,11 +2,13 @@ import 'package:json_annotation/json_annotation.dart';
 
 enum EnergyLabel { A, B, C, D, E, UNKNOWN }
 
-class EnergyLabelSerialiser implements JsonConverter<EnergyLabel, String> {
+class EnergyLabelSerialiser implements JsonConverter<EnergyLabel?, String?> {
   const EnergyLabelSerialiser();
 
   @override
-  EnergyLabel fromJson(String json) {
+  EnergyLabel? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'A':
         return EnergyLabel.A;
@@ -24,7 +26,9 @@ class EnergyLabelSerialiser implements JsonConverter<EnergyLabel, String> {
   }
 
   @override
-  String toJson(EnergyLabel object) {
+  String? toJson(EnergyLabel? object) {
+    if (object == null) return null;
+
     switch (object) {
       case EnergyLabel.A:
         return 'A';

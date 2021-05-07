@@ -51,7 +51,7 @@ class FarePart {
   factory FarePart.fromJson(Map<String, dynamic> json) =>
       _$FarePartFromJson(json);
 
-  Map<String, dynamic> tojson() => _$FarePartToJson(this);
+  Map<String, dynamic> toJson() => _$FarePartToJson(this);
 
   @override
   String toString() {

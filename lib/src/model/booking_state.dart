@@ -14,11 +14,13 @@ enum BookingState {
   UNKNOWN
 }
 
-class BookingStateSerialiser implements JsonConverter<BookingState, String> {
+class BookingStateSerialiser implements JsonConverter<BookingState?, String?> {
   const BookingStateSerialiser();
 
   @override
-  BookingState fromJson(String json) {
+  BookingState? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'NEW':
         return BookingState.NEW;
@@ -46,5 +48,6 @@ class BookingStateSerialiser implements JsonConverter<BookingState, String> {
   }
 
   @override
-  String toJson(BookingState state) => state.toString().replaceFirst('BookingState.', '');
+  String? toJson(BookingState? state) =>
+      state?.toString().replaceFirst('BookingState.', '');
 }

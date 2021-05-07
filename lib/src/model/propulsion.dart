@@ -11,11 +11,13 @@ enum Propulsion {
   UNKNOWN
 }
 
-class PropulsionSerialiser implements JsonConverter<Propulsion, String> {
+class PropulsionSerialiser implements JsonConverter<Propulsion?, String?> {
   const PropulsionSerialiser();
 
   @override
-  Propulsion fromJson(String json) {
+  Propulsion? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'MUSCLE':
         return Propulsion.MUSCLE;
@@ -37,7 +39,8 @@ class PropulsionSerialiser implements JsonConverter<Propulsion, String> {
   }
 
   @override
-  String toJson(Propulsion object) {
+  String? toJson(Propulsion? object) {
+    if (object == null) return null;
     switch (object) {
       case Propulsion.MUSCLE:
         return 'MUSCLE';

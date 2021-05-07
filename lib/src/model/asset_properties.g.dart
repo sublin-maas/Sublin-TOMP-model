@@ -14,7 +14,7 @@ AssetProperties _$AssetPropertiesFromJson(Map<String, dynamic> json) {
         : Place.fromJson(json['location'] as Map<String, dynamic>),
     fuel: _$enumDecodeNullable(_$FuelEnumMap, json['fuel']),
     energyLabel:
-        _$enumDecodeNullable(_$EnergyLabelEnumMap, json['energyLabel']),
+        const EnergyLabelSerialiser().fromJson(json['energyLabel'] as String?),
     co2PerKm: (json['co2PerKm'] as num?)?.toDouble(),
     brand: json['brand'] as String?,
     model: json['model'] as String?,
@@ -24,15 +24,16 @@ AssetProperties _$AssetPropertiesFromJson(Map<String, dynamic> json) {
     cabrio: json['cabrio'] as bool?,
     colour: json['colour'] as String?,
     cargo: json['cargo'] as String?,
-    easyAccessibility: _$enumDecodeNullable(
-        _$EasyAccessibilityEnumMap, json['easyAccessibility']),
+    easyAccessibility: const EasyAccessibilitySerialiser()
+        .fromJson(json['easyAccessibility'] as String?),
     gears: json['gears'] as int?,
-    gearbox: _$enumDecodeNullable(_$GearboxEnumMap, json['gearbox']),
+    gearbox: const GearboxSerialiser().fromJson(json['gearbox'] as String?),
     image: json['image'] as String?,
     infantSeat: json['infantSeat'] as bool?,
     persons: json['persons'] as int?,
     pets: json['pets'] as bool?,
-    propulsion: _$enumDecodeNullable(_$PropulsionEnumMap, json['propulsion']),
+    propulsion:
+        const PropulsionSerialiser().fromJson(json['propulsion'] as String?),
     smoking: json['smoking'] as bool?,
     stateOfCharge: json['stateOfCharge'] as int?,
     towingHook: json['towingHook'] as bool?,
@@ -48,7 +49,7 @@ Map<String, dynamic> _$AssetPropertiesToJson(AssetProperties instance) =>
       'name': instance.name,
       'location': instance.location,
       'fuel': _$FuelEnumMap[instance.fuel],
-      'energyLabel': _$EnergyLabelEnumMap[instance.energyLabel],
+      'energyLabel': const EnergyLabelSerialiser().toJson(instance.energyLabel),
       'co2PerKm': instance.co2PerKm,
       'brand': instance.brand,
       'model': instance.model,
@@ -58,15 +59,15 @@ Map<String, dynamic> _$AssetPropertiesToJson(AssetProperties instance) =>
       'cabrio': instance.cabrio,
       'colour': instance.colour,
       'cargo': instance.cargo,
-      'easyAccessibility':
-          _$EasyAccessibilityEnumMap[instance.easyAccessibility],
+      'easyAccessibility': const EasyAccessibilitySerialiser()
+          .toJson(instance.easyAccessibility),
       'gears': instance.gears,
-      'gearbox': _$GearboxEnumMap[instance.gearbox],
+      'gearbox': const GearboxSerialiser().toJson(instance.gearbox),
       'image': instance.image,
       'infantSeat': instance.infantSeat,
       'persons': instance.persons,
       'pets': instance.pets,
-      'propulsion': _$PropulsionEnumMap[instance.propulsion],
+      'propulsion': const PropulsionSerialiser().toJson(instance.propulsion),
       'smoking': instance.smoking,
       'stateOfCharge': instance.stateOfCharge,
       'towingHook': instance.towingHook,
@@ -126,41 +127,4 @@ const _$FuelEnumMap = {
   Fuel.BIO_MASS: 'BIO_MASS',
   Fuel.KEROSINE: 'KEROSINE',
   Fuel.OTHER: 'OTHER',
-};
-
-const _$EnergyLabelEnumMap = {
-  EnergyLabel.A: 'A',
-  EnergyLabel.B: 'B',
-  EnergyLabel.C: 'C',
-  EnergyLabel.D: 'D',
-  EnergyLabel.E: 'E',
-  EnergyLabel.UNKNOWN: 'UNKNOWN',
-};
-
-const _$EasyAccessibilityEnumMap = {
-  EasyAccessibility.LIFT: 'LIFT',
-  EasyAccessibility.ESCALATOR: 'ESCALATOR',
-  EasyAccessibility.GROUND_LEVEL: 'GROUND_LEVEL',
-  EasyAccessibility.SIGHTIMPAIRMENT: 'SIGHTIMPAIRMENT',
-  EasyAccessibility.HEARINGIMPAIRMENT: 'HEARINGIMPAIRMENT',
-  EasyAccessibility.WHEELCHAIR: 'WHEELCHAIR',
-  EasyAccessibility.UNKNOWN: 'UNKNOWN',
-};
-
-const _$GearboxEnumMap = {
-  Gearbox.MANUAL: 'MANUAL',
-  Gearbox.AUTOMATIC: 'AUTOMATIC',
-  Gearbox.SEMIAUTOMATIC: 'SEMIAUTOMATIC',
-  Gearbox.UNKNOWN: 'UNKNOWN',
-};
-
-const _$PropulsionEnumMap = {
-  Propulsion.MUSCLE: 'MUSCLE',
-  Propulsion.ELECTRIC: 'ELECTRIC',
-  Propulsion.GASOLINE: 'GASOLINE',
-  Propulsion.DIESEL: 'DIESEL',
-  Propulsion.HYBRID: 'HYBRID',
-  Propulsion.LPG: 'LPG',
-  Propulsion.HYDROGEN: 'HYDROGEN',
-  Propulsion.UNKNOWN: 'UNKNOWN',
 };

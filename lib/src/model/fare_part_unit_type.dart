@@ -3,11 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 enum FarePartUnitType { KM, SECOND, MINUTE, HOUR, MILE, PERCENTAGE, UNKNOWN }
 
 class FarePartUnitTypeSerialiser
-    implements JsonConverter<FarePartUnitType, String> {
+    implements JsonConverter<FarePartUnitType?, String?> {
   const FarePartUnitTypeSerialiser();
 
   @override
-  FarePartUnitType fromJson(String json) {
+  FarePartUnitType? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json.toUpperCase()) {
       case 'KM':
         return FarePartUnitType.KM;
@@ -27,7 +29,8 @@ class FarePartUnitTypeSerialiser
   }
 
   @override
-  String toJson(FarePartUnitType unitType) {
+  String? toJson(FarePartUnitType? unitType) {
+    if (unitType == null) return null;
     switch (unitType) {
       case FarePartUnitType.KM:
         return 'KM';

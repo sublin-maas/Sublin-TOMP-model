@@ -39,7 +39,7 @@ Leg _$LegFromJson(Map<String, dynamic> json) {
     conditions: (json['conditions'] as List<dynamic>?)
         ?.map((e) => Condition.fromJson(e as Map<String, dynamic>))
         .toList(),
-    state: _$enumDecodeNullable(_$LegStateEnumMap, json['state']),
+    state: const LegStateSerialiser().fromJson(json['state'] as String?),
     departureDelay: json['departureDelay'] == null
         ? null
         : Duration(microseconds: json['departureDelay'] as int),
@@ -73,7 +73,7 @@ Map<String, dynamic> _$LegToJson(Leg instance) => <String, dynamic>{
       'pricing': instance.pricing,
       'suboperator': instance.suboperator,
       'conditions': instance.conditions,
-      'state': _$LegStateEnumMap[instance.state],
+      'state': const LegStateSerialiser().toJson(instance.state),
       'departureDelay': instance.departureDelay?.inMicroseconds,
       'arrivalDelay': instance.arrivalDelay?.inMicroseconds,
       'distance': instance.distance,
@@ -81,52 +81,3 @@ Map<String, dynamic> _$LegToJson(Leg instance) => <String, dynamic>{
       'ticket': instance.ticket,
       'assetAccessData': instance.assetAccessData,
     };
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
-
-K? _$enumDecodeNullable<K, V>(
-  Map<K, V> enumValues,
-  dynamic source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
-}
-
-const _$LegStateEnumMap = {
-  LegState.NOT_STARTED: 'NOT_STARTED',
-  LegState.PREPARING: 'PREPARING',
-  LegState.IN_USE: 'IN_USE',
-  LegState.PAUSED: 'PAUSED',
-  LegState.FINISHING: 'FINISHING',
-  LegState.FINISHED: 'FINISHED',
-  LegState.ISSUE_REPORTED: 'ISSUE_REPORTED',
-  LegState.CANCELLED: 'CANCELLED',
-  LegState.UNKNOWN: 'UNKNOWN',
-};

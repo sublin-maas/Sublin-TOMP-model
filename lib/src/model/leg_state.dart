@@ -12,12 +12,14 @@ enum LegState {
   UNKNOWN
 }
 
-class LegStateSerialiser implements JsonConverter<LegState, String> {
+class LegStateSerialiser implements JsonConverter<LegState?, String?> {
 
   const LegStateSerialiser();
 
   @override
-  LegState fromJson(String json) {
+  LegState? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json) {
       case 'NOT_STARTED':
         return LegState.NOT_STARTED;
@@ -41,7 +43,8 @@ class LegStateSerialiser implements JsonConverter<LegState, String> {
   }
 
   @override
-  String toJson(LegState object) {
+  String? toJson(LegState? object) {
+    if (object == null) return null;
     switch (object) {
       case LegState.NOT_STARTED:
         return 'NOT_STARTED';

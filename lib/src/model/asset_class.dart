@@ -27,11 +27,13 @@ enum AssetClass {
   UNKNOWN,
 }
 
-class AssetClassSerialiser implements JsonConverter<AssetClass, String> {
+class AssetClassSerialiser implements JsonConverter<AssetClass?, String?> {
   const AssetClassSerialiser();
 
   @override
-  AssetClass fromJson(String json) {
+  AssetClass? fromJson(String? json) {
+    if (json == null) return null;
+
     switch (json) {
       case 'AIR':
         return AssetClass.AIR;
@@ -85,7 +87,9 @@ class AssetClassSerialiser implements JsonConverter<AssetClass, String> {
   }
 
   @override
-  String toJson(AssetClass object) {
+  String? toJson(AssetClass? object) {
+    if (object == null) return null;
+
     switch (object) {
       case AssetClass.AIR:
         return 'AIR';

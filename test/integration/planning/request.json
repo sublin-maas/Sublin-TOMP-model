@@ -1,0 +1,117 @@
+{
+  "from": {
+    "name": "string",
+    "stopReference": [
+      {
+        "type": "GTFS_STOP_ID",
+        "id": "string",
+        "country": "NL"
+      }
+    ],
+    "stationId": "string",
+    "coordinates": {
+      "lng": 6.169639,
+      "lat": 52.253279
+    },
+    "physicalAddress": {
+      "streetAddress": "example street 18, 2nd floor, 18-B33",
+      "street": "string",
+      "houseNumber": 0,
+      "houseNumberAddition": "string",
+      "addressAdditionalInfo": "string",
+      "areaReference": "Smallcity, Pinetree county",
+      "city": "string",
+      "province": "string",
+      "state": "string",
+      "postalCode": "string",
+      "country": "NL"
+    },
+    "extraInfo": {
+      "additionalProp1": {}
+    }
+  },
+  "radius": 0,
+  "to": {
+    "name": "string",
+    "stopReference": [
+      {
+        "type": "GTFS_STOP_ID",
+        "id": "string",
+        "country": "NL"
+      }
+    ],
+    "stationId": "string",
+    "coordinates": {
+      "lng": 6.169639,
+      "lat": 52.253279
+    },
+    "physicalAddress": {
+      "streetAddress": "example street 18, 2nd floor, 18-B33",
+      "street": "string",
+      "houseNumber": 0,
+      "houseNumberAddition": "string",
+      "addressAdditionalInfo": "string",
+      "areaReference": "Smallcity, Pinetree county",
+      "city": "string",
+      "province": "string",
+      "state": "string",
+      "postalCode": "string",
+      "country": "NL"
+    },
+    "extraInfo": {
+      "additionalProp1": {}
+    }
+  },
+  "departureTime": "2021-05-07T13:56:15.205Z",
+  "arrivalTime": "2021-05-07T13:56:15.205Z",
+  "nrOfTravelers": 1,
+  "travelers": [
+    {
+      "isValidated": true,
+      "age": 0,
+      "referenceNumber": "string",
+      "cardTypes": [
+        {
+          "type": "ID",
+          "subType": "string",
+          "assetClass": "AIR",
+          "acceptors": [
+            "string"
+          ]
+        }
+      ],
+      "licenseTypes": [
+        {
+          "assetClass": "AIR",
+          "issuingCountry": "NL"
+        }
+      ],
+      "requirements": {
+        "abilities": [
+          {
+            "category": "HR",
+            "number": "st",
+            "type": "string",
+            "memo": "string",
+            "variable-number": 0,
+            "applicable-days": [
+              "MO"
+            ]
+          }
+        ],
+        "additionalProp1": {}
+      },
+      "knownIdentifier": "string",
+      "knownIdentifierProvider": "string"
+    }
+  ],
+  "useAssets": [
+    "string"
+  ],
+  "userGroups": [
+    "string"
+  ],
+  "useAssetTypes": [
+    "string"
+  ]
+}
