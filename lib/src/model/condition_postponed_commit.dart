@@ -1,6 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/condition.dart';
 
+part 'condition_postponed_commit.g.dart';
+
 @JsonSerializable()
 class ConditionPostponedCommit extends Condition {
   DateTime ultimateResponseTime;

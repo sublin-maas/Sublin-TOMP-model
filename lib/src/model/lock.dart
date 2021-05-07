@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+part 'lock.g.dart';
+
 @JsonSerializable()
 class Lock {
   final String? bdAddress;

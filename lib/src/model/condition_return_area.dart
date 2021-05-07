@@ -3,6 +3,8 @@ import 'package:sublin_tomp_model/src/model/condition.dart';
 import 'package:sublin_tomp_model/src/model/coordinates.dart';
 import 'package:sublin_tomp_model/src/model/system_hours.dart';
 
+part 'condition_return_area.g.dart';
+
 @JsonSerializable()
 class ConditionReturnArea extends Condition {
   String? stationId;

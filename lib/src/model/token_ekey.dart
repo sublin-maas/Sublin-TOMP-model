@@ -2,6 +2,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/lock.dart';
 import 'package:sublin_tomp_model/src/model/token_data.dart';
 
+part 'token_ekey.g.dart';
+
 @JsonSerializable()
 class TokenEKey extends TokenData {
   final Lock ekey;
