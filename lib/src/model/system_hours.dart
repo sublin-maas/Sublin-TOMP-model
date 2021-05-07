@@ -21,6 +21,10 @@ class SystemHours {
       this.stationId,
       this.regionId});
 
+  factory SystemHours.fromJson(Map<String, dynamic> json) => _$SystemHoursFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SystemHoursToJson(this);
+
   @override
   String toString() =>
       'SystemHours[usertType:$userType, stationId:$stationId, regionId:$regionId, startTime:$startTime, endTime:$endTime, days:$days]';

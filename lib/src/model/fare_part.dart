@@ -48,6 +48,11 @@ class FarePart {
     this.meta,
   });
 
+  factory FarePart.fromJson(Map<String, dynamic> json) =>
+      _$FarePartFromJson(json);
+
+  Map<String, dynamic> tojson() => _$FarePartToJson(this);
+
   @override
   String toString() {
     return 'FarePart[amount=$amount, amountExVat=$amountExVat, currencyCode=$currencyCode, vatRate=$vatRate, vatCountryCode=$vatCountryCode, type=$type, unitType=$unitType, units=$units, scaleFrom=$scaleFrom, scaleTo=$scaleTo, scaleType=$scaleType, name=$name, class_=$farePartClass, meta=$meta, ]';

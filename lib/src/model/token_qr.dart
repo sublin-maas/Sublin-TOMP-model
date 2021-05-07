@@ -14,5 +14,6 @@ class TokenQR extends TokenData {
   factory TokenQR.fromJson(Map<String, dynamic> json) =>
       _$TokenQRFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$TokenQRToJson(this);
 }

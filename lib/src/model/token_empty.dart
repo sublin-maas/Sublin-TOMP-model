@@ -11,5 +11,5 @@ class TokenEmpty extends TokenData {
       _$TokenEmptyFromJson(json);
 
   @override
-  Map<String, dynamic> toJosn() => _$TokenEmptyToJson(this);
+  Map<String, dynamic> toJson() => _$TokenEmptyToJson(this);
 }

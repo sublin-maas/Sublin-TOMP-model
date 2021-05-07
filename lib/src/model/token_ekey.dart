@@ -10,11 +10,11 @@ class TokenEKey extends TokenData {
   final Lock lock;
 
   factory TokenEKey.fromJson(Map<String, dynamic> json) =>
-      _$TokenEkeyFromJson(json);
+      _$TokenEKeyFromJson(json);
 
   TokenEKey({required String tokenType, required this.ekey, required this.lock})
       : super(tokenType: tokenType);
 
   @override
-  Map<String, dynamic> toJson() => _$TokenEKeyToJson(json);
+  Map<String, dynamic> toJson() => _$TokenEKeyToJson(this);
 }

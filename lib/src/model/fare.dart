@@ -14,6 +14,10 @@ class Fare {
 
   Fare({required this.estimated, this.description, this.fareClass, required this.parts});
 
+  factory Fare.fromJson(Map<String, dynamic> json) => _$FareFromJson(json);
+
+  Map<String, dynamic> toJson() => _$FareToJson(this);
+
   @override
   String toString() {
     return 'Fare[estimated=$estimated, description=$description, class_=$fareClass, parts=$parts, ]';

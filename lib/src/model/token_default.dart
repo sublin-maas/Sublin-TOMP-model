@@ -8,7 +8,7 @@ class TokenDefault extends TokenData {
   TokenDefault({required String tokenType}) : super(tokenType: tokenType);
 
   factory TokenDefault.fromJson(Map<String, dynamic> json) =>
-      _$TokenDefaultFromJson();
+      _$TokenDefaultFromJson(json);
 
   factory TokenDefault.create() => TokenDefault(tokenType: 'tokenDefault');
   @override

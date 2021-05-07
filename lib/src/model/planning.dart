@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/booking.dart';
 
-part 'planning.d.dart';
+part 'planning.g.dart';
 
 @JsonSerializable()
 class Planning {
@@ -11,7 +11,7 @@ class Planning {
 
   Planning({required this.validUntil, required this.options});
 
-  factory Planning.fromJson(Map<String, dynamic> json) => _$PlannignFromJson(json);
+  factory Planning.fromJson(Map<String, dynamic> json) => _$PlanningFromJson(json);
 
   Map<String, dynamic> toJson() => _$PlanningToJson(this);
 

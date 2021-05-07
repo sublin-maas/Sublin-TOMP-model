@@ -1,3 +1,4 @@
+import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/easy_accessibility.dart';
 import 'package:sublin_tomp_model/src/model/energy_label.dart';
 import 'package:sublin_tomp_model/src/model/fuel.dart';
@@ -5,6 +6,9 @@ import 'package:sublin_tomp_model/src/model/gearbox.dart';
 import 'package:sublin_tomp_model/src/model/place.dart';
 import 'package:sublin_tomp_model/src/model/propulsion.dart';
 
+part 'asset_properties.g.dart';
+
+@JsonSerializable()
 class AssetProperties {
   String? name;
   Place? location;
@@ -70,6 +74,11 @@ class AssetProperties {
     this.other,
     this.meta,
   });
+
+  factory AssetProperties.fromJson(Map<String, dynamic> json) =>
+      _$AssetPropertiesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AssetPropertiesToJson(this);
 
   @override
   String toString() {

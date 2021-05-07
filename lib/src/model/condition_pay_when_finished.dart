@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:sublin_tomp_model/src/model/condition.dart';
 
-part 'condition_pay_when_finished';
+part 'condition_pay_when_finished.g.dart';
 
 @JsonSerializable()
 class ConditionPayWhenFinished extends Condition {

@@ -15,5 +15,5 @@ class TokenDeeplink extends TokenData {
       _$TokenDeeplinkFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$TokenDeepLinkToJson(this);
+  Map<String, dynamic> toJson() => _$TokenDeeplinkToJson(this);
 }

@@ -54,7 +54,7 @@ class Leg {
       this.ticket,
       this.assetAccessData});
 
-  factory Leg.fromJson(Map<String, dynamic> json) => _$LegJsonFromJson(json);
+  factory Leg.fromJson(Map<String, dynamic> json) => _$LegFromJson(json);
 
   Map<String, dynamic> toJon() => _$LegToJson(this);
 

@@ -11,5 +11,5 @@ class EKey {
 
   factory EKey.fromJson(Map<String, dynamic> json) => _$EKeyFromJson(json);
 
-  String toJson() => _$EKeyToJson(this);
+  Map<String, dynamic> toJson() => _$EKeyToJson(this);
 }
